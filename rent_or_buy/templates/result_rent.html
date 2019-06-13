@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Resultado:</h4>
+    </div>
+    <div class="card-body">
+            <h5 class="card-title">Vale a pena alugar!</h5>
+            <br>
+
+            {% for item in plot %}
+                {{ item | safe}}
+            {% endfor %}
+            
+            
+            <br>
+            <p class="card-text">
+                Compensa financeiramente morar de aluguel. Em aproximadamente {{ calculated.pay_off }} anos, com o dinheiro economizado, você poderia
+                comprar a vista sua casa!
+            </p>
+            <p class="card-text">
+                Dado que a parcela do financiamente ficaria em <strong class="text-info">{{ calculated.pmt }}</strong> e investindo mensalmente a diferença
+                entre esse valor e o aluguel (<strong class="text-info">{{ calculated.nom_invest }}</strong>), o saldo final desse investimento será maior que o valor futuro do imóvel.
+            </p>
+
+    </div>
+
+</div> 

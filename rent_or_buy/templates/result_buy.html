@@ -1,0 +1,20 @@
+<div class="card">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Resultado:</h4>
+        </div>
+        <div class="card-body">
+                <h5 class="card-title">Financie o Imóvel!</h5>
+                <br>
+
+                {% for item in plot %}
+                    {{ item | safe}}
+                {% endfor %}
+                
+                
+                <br>
+                <p class="card-text">Nesse caso, o mais vantajoso financeiramente será financiar o imóvel</p>
+                <p class="card-text">Dado que a parcela do financiamente ficaria em <strong class="text-info">{{ calculated.pmt }}</strong> e o valor do aluguel informado
+                    é de <strong class="text-info">{{ calculated.rent }}</strong>, o montante final acumulado com a economia será inferior ao 
+                        valor do imóvel.</p>
+        </div>
+</div> 

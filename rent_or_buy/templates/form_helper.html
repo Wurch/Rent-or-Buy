@@ -1,0 +1,115 @@
+{% macro CurrencyGroup(fieldName) %}
+<div class="form-group pl-0">
+	<div id="textbox">
+    {{  fieldName.label(class="form-control-label alignleft") }}
+    <span class="badge badge-pill badge-darik alignright">??</span>
+	</div>
+    {% if fieldName.errors %}    
+        <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">R$</span>
+            </div>
+            {{ fieldName(class="form-control form-control-lg is-invalid") }}
+            <div class="input-group-append">
+                <span class="input-group-text">,00</span>
+            </div>
+        </div>
+            {% for error in fieldName.errors %}
+                <small class="mt-0" style="color:crimson ;">{{ error }}</small>
+            {% endfor %}
+        <div class="invalid-feedback">
+            {% for error in fieldName.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">R$</span>
+            </div>
+            {{ fieldName(class="form-control form-control-lg") }}
+             <div class="input-group-append">
+                <span class="input-group-text">,00</span>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
+
+{% macro PercentGroup(fieldName) %}
+<div class="form-group pl-0">
+    {{  fieldName.label(class="form-control-label") }}
+    {% if fieldName.errors %}    
+        <div class="input-group mb-1">
+            {{ fieldName(class="form-control form-control-lg is-invalid") }}
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+        </div>
+            {% for error in fieldName.errors %}
+                <small class="mt-0" style="color:crimson ;">{{ error }}</small>
+            {% endfor %}
+        <div class="invalid-feedback">
+            {% for error in fieldName.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="input-group mb-2">
+            {{ fieldName(class="form-control form-control-lg") }}
+            <div class="input-group-append">
+                <span class="input-group-text">%</span>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{% endmacro %}
+
+{% macro TimeGroup(fieldName) %}
+<div class="form-group pl-0">
+    {{  fieldName.label(class="form-control-label") }}
+    {% if fieldName.errors %}    
+        <div class="input-group mb-1">
+            {{ fieldName(class="form-control form-control-lg is-invalid") }}
+            <div class="input-group-append">
+                <span class="input-group-text">Anos</span>
+            </div>
+        </div>
+            {% for error in fieldName.errors %}
+                <small class="mt-0" style="color:crimson ;">{{ error }}</small>
+            {% endfor %}
+        <div class="invalid-feedback">
+            {% for error in fieldName.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="input-group mb-2">
+            {{ fieldName(class="form-control form-control-lg") }}
+            <div class="input-group-append">
+                <span class="input-group-text">Anos</span>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{% endmacro %}
+
+
+{%- macro form_field(fieldName, type) -%}
+
+    {% if type == 'Currency' %}
+        {{ CurrencyGroup(fieldName) }} 
+    {% else %}
+        {% if type == 'Percent' %}
+            {{ PercentGroup(fieldName) }}
+        {% else %}
+            {% if type == 'Time' %}
+                {{ TimeGroup(fieldName) }} 
+            {% endif %}
+        {% endif %}
+    {% endif %}
+    
+{%- endmacro -%}

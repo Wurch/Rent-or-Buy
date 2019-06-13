@@ -1,0 +1,5 @@
+venv
+*.service
+*.ini
+__pycache__
+*.DS_Store

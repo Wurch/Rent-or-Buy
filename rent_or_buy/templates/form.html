@@ -1,0 +1,38 @@
+{% from 'form_helper.html' import form_field %}
+
+<div class="d-flex justify-content-md-center">
+    <div class="card-deck mb-3" style="min-width: 20rem">
+      <div class="card mb-4 box-shadow" >
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal text-center">Informe os parâmetros:</h4>
+        </div>
+        <div class="card-body">
+          <div class="flex-box justify-content-md-center">
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    
+                    {{ form_field(form.price, 'Currency') }}
+
+                    {{ form_field(form.rent, 'Currency') }}
+
+                    {{ form_field(form.advance, 'Percent') }}
+
+                    {{ form_field(form.valorization, 'Percent') }}
+
+                    {{ form_field(form.fin_rate, 'Percent') }}
+
+                    {{ form_field(form.fin_term, 'Time') }}
+
+                    {{ form_field(form.invest_yield, 'Percent') }}
+   
+                </fieldset>
+                <div class="form-group text-center">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+            </form>
+          </div>  
+        </div>
+      </div>
+    </div>
+</div>

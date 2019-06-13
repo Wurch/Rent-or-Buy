@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 col-sm mt-2">
+            <div class="container">
+                <div class="row">
+                    {% if calculated.worth_to == "very_buy" %}
+                        {% include 'result_very_buy.html' %}
+                    {% elif calculated.worth_to == "rent" %}
+                        {% include 'result_rent.html' %}
+                    {% else %}
+                        {% include 'result_buy.html' %}
+                    {% endif %}
+                </div>
+                <div class="row mt-2">
+                    <div class="mt-3">
+                        {{ calculated.table | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm mt-2">
+            <div class="d-flex justify-content-center">
+                {% include 'form.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

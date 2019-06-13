@@ -1,0 +1,8 @@
+input {
+	text-align: right;
+}
+
+#textbox {
+    display: flex;
+    justify-content: space-between;
+}
