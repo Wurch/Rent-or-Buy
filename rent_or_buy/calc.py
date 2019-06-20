@@ -6,7 +6,7 @@ class imovel:
         self.price = price
         self.rent = rent
         self.valorization = valorization/100
-        self.entrada = price * (entrada/100)
+        self.entrada = entrada
     
     def pmt(self, param):
         a = param.rate_fin * (1+param.rate_fin)**param.prazo
