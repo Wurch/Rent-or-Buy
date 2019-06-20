@@ -9,7 +9,7 @@ class SimulationParams(FlaskForm):
         validators=[InputRequired(message='Campo Obrigatório')],
         default=400000)
     rent = IntegerField(label='Valor do aluguel de um imóvel equivalente', default=1600)
-    advance = FloatField(label='Percentual de entrada',  default=0)
+    advance = IntegerField(label='Valor de entrada do financiamento',  default=0)
     valorization = FloatField(label='Valorização do imóvel',  default=2.5)
 
     #Economic Params:
