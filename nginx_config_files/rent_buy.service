@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve rent_buy
+After=network.target
+
+[Service]
+User=ewurch
+Group=www-data
+WorkingDirectory=/home/ewurch/Rent_or_Buy
+Environment="PATH=/home/ewurch/Rent_or_Buy/venv/bin"
+ExecStart=/home/ewurch/Rent_or_Buy/venv/bin/uwsgi --ini rent_buy.ini
+
+[Install]
+WantedBy=multi-user.target
